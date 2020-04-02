@@ -1,8 +1,10 @@
 package com.footm.informationservice;
 
 import io.dropwizard.Application;
+import io.dropwizard.jdbi3.JdbiFactory;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import org.jdbi.v3.core.Jdbi;
 
 public class InformationServiceApplication extends Application<InformationServiceConfiguration> {
 
@@ -23,7 +25,12 @@ public class InformationServiceApplication extends Application<InformationServic
     @Override
     public void run(final InformationServiceConfiguration configuration,
                     final Environment environment) {
-        // TODO: implement application
+
+
+        //database
+        final JdbiFactory factory = new JdbiFactory();
+        final Jdbi jdbi = factory.build(environment, configuration.getDataSourceFactory(), "postgresql");
+        environment.jersey().register(jdbi);
     }
 
 }
