@@ -9,7 +9,7 @@ public interface PlayerDao {
 
     @SqlQuery("select id,name,age,photo,nationality,overall,club," +
             "value,wage,preferredfoot,skillmoves,workrate," +
-            "position,jerseynumber,height,weight " +
+            "position,jerseynumber,height,weight,releaseClause " +
             "from player where id = :id ")
     @RegisterBeanMapper(Player.class)
     Player getPlayer(@Bind("id") int id);
