@@ -128,4 +128,89 @@ public class Player {
     public int getWeight() {
         return weight;
     }
+
+    @JsonProperty
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    @JsonProperty
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonProperty
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @JsonProperty
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    @JsonProperty
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
+
+    @JsonProperty
+    public void setOverall(int overall) {
+        this.overall = overall;
+    }
+
+    @JsonProperty
+    public void setClub(String club) {
+        this.club = club;
+    }
+
+    @JsonProperty
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+    @JsonProperty
+    public void setWage(int wage) {
+        this.wage = wage;
+    }
+
+    @JsonProperty
+    public void setReleaseClause(int releaseClause) {
+        this.releaseClause = releaseClause;
+    }
+
+    @JsonProperty
+    public void setPreferredFoot(String preferredFoot) {
+        this.preferredFoot = preferredFoot;
+    }
+
+    @JsonProperty
+    public void setSkillMoves(int skillMoves) {
+        this.skillMoves = skillMoves;
+    }
+
+    @JsonProperty
+    public void setWorkRate(String workRate) {
+        this.workRate = workRate;
+    }
+
+    @JsonProperty
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    @JsonProperty
+    public void setJerseyNumber(int jerseyNumber) {
+        this.jerseyNumber = jerseyNumber;
+    }
+
+    @JsonProperty
+    public void setHeight(String height) {
+        this.height = height;
+    }
+
+    @JsonProperty
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
 }
