@@ -7,6 +7,8 @@ import org.jdbi.v3.sqlobject.config.RegisterBeanMapper;
 import org.jdbi.v3.sqlobject.customizer.Bind;
 import org.jdbi.v3.sqlobject.statement.SqlQuery;
 
+import java.util.List;
+
 public interface PlayerDao {
 
     @SqlQuery("select id,name,age,photo,nationality,overall,club," +
@@ -30,4 +32,11 @@ public interface PlayerDao {
             "CB , RCB ,RB from player where id = :id ")
     @RegisterBeanMapper(PlayerPositions.class)
     PlayerPositions getPlayerPositions(@Bind("id") int id);
+
+    @SqlQuery("select id,name,age,photo,nationality,overall,club," +
+            "value,wage,preferredfoot,skillmoves,workrate," +
+            "position,jerseynumber,height,weight,releaseClause " +
+            "from player where club = :clubId ")
+    @RegisterBeanMapper(Player.class)
+    List<Player> getPlayersInClub(@Bind("clubId") String clubId);
 }
