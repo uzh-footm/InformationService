@@ -1,13 +1,12 @@
 package com.footm.informationservice.resources;
 
 import com.footm.informationservice.api.Club;
+import com.footm.informationservice.api.Player;
 import com.footm.informationservice.db.ClubDao;
 import com.footm.informationservice.db.PlayerDao;
 import org.jdbi.v3.core.Jdbi;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -25,5 +24,12 @@ public class ClubResource {
     @Produces(MediaType.APPLICATION_JSON)
     public List<Club> getListClubs(){
         return jdbdi.withExtension(ClubDao.class, dao -> dao.getListClubs());
+    }
+
+    @GET
+    @Path("/{clubId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Player> getPlayersInClub(@PathParam("clubId") String clubId){
+        return jdbdi.withExtension(PlayerDao.class, dao -> dao.getPlayersInClub(clubId));
     }
 }
