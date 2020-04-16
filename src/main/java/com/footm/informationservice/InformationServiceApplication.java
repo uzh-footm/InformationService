@@ -1,5 +1,6 @@
 package com.footm.informationservice;
 
+import com.footm.informationservice.resources.ClubResource;
 import com.footm.informationservice.resources.PlayerResource;
 import io.dropwizard.Application;
 import io.dropwizard.jdbi3.JdbiFactory;
@@ -32,6 +33,7 @@ public class InformationServiceApplication extends Application<InformationServic
         final JdbiFactory factory = new JdbiFactory();
         final Jdbi jdbi = factory.build(environment, configuration.getDataSourceFactory(), "postgresql");
         environment.jersey().register(new PlayerResource(jdbi));
+        environment.jersey().register(new ClubResource(jdbi));
     }
 
 }
