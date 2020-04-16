@@ -39,4 +39,11 @@ public interface PlayerDao {
             "from player where club = :clubId ")
     @RegisterBeanMapper(Player.class)
     List<Player> getPlayersInClub(@Bind("clubId") String clubId);
+
+    @SqlQuery("select id,name,age,photo,nationality,overall,club," +
+            "value,wage,preferredfoot,skillmoves,workrate," +
+            "position,jerseynumber,height,weight,releaseClause " +
+            "from player where Nationality = :nationalityId ")
+    @RegisterBeanMapper(Player.class)
+    List<Player> getPlayersInNationality(@Bind("nationalityId") String nationalityId);
 }
