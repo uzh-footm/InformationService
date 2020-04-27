@@ -28,11 +28,4 @@ public class NationalityResource {
     public List<Nationality> getListNationalities(){
         return jdbdi.withExtension(NationalityDao.class, dao -> dao.getListNationalities());
     }
-
-    @GET
-    @Path("/{nationalityId}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<Player> getPlayersInNationality(@PathParam("nationalityId") String nationalityId){
-        return jdbdi.withExtension(PlayerDao.class, dao -> dao.getPlayersInNationality(nationalityId));
-    }
 }
