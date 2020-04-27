@@ -1,6 +1,7 @@
 package com.footm.informationservice;
 
 import com.footm.informationservice.resources.ClubResource;
+import com.footm.informationservice.resources.LeagueResource;
 import com.footm.informationservice.resources.NationalityResource;
 import com.footm.informationservice.resources.PlayerResource;
 import io.dropwizard.Application;
@@ -36,6 +37,8 @@ public class InformationServiceApplication extends Application<InformationServic
         environment.jersey().register(new PlayerResource(jdbi));
         environment.jersey().register(new ClubResource(jdbi));
         environment.jersey().register(new NationalityResource(jdbi));
+        environment.jersey().register(new LeagueResource(jdbi));
+
 
     }
 
