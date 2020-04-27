@@ -26,4 +26,10 @@ public class ClubResource {
         return jdbdi.withExtension(ClubDao.class, dao -> dao.getListClubs());
     }
 
+    @GET
+    @Path("league/{leagueId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Club> getListClubsInLeague(@PathParam("leagueId") String leagueId) {
+        return jdbdi.withExtension(ClubDao.class, dao -> dao.getListClubsInLeague(leagueId));
+    }
 }
