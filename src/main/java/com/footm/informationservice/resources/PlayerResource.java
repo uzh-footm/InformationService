@@ -54,4 +54,11 @@ public class PlayerResource {
     public List<Player> getPlayersInNationality(@PathParam("nationalityId") String nationalityId){
         return jdbdi.withExtension(PlayerDao.class, dao -> dao.getPlayersInNationality(nationalityId));
     }
+
+    @GET
+    @Path("/search/{playerNamePattern}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Player> getListPlayersWithMatchingNamePatterns(@PathParam("playerNamePattern") String playerNamePattern){
+        return jdbdi.withExtension(PlayerDao.class, dao -> dao.getListPlayersWithMatchingNamePatterns("%"+playerNamePattern+"%"));
+    }
 }

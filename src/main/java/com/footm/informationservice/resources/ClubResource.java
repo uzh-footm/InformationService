@@ -32,4 +32,11 @@ public class ClubResource {
     public List<Club> getListClubsInLeague(@PathParam("leagueId") String leagueId) {
         return jdbdi.withExtension(ClubDao.class, dao -> dao.getListClubsInLeague(leagueId));
     }
+
+    @GET
+    @Path("/search/{clubNamePattern}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Club> getListClubsWithMatchingNamePatterns(@PathParam("clubNamePattern") String clubNamePattern){
+        return jdbdi.withExtension(ClubDao.class, dao -> dao.getListClubsWithMatchingNamePatterns("%"+clubNamePattern+"%"));
+    }
 }

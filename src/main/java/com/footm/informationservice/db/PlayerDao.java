@@ -46,4 +46,11 @@ public interface PlayerDao {
             "from player where Nationality = :nationalityId ")
     @RegisterBeanMapper(Player.class)
     List<Player> getPlayersInNationality(@Bind("nationalityId") String nationalityId);
+
+    @SqlQuery("select id,name,age,photo,nationality,overall,club," +
+            "value,wage,preferredfoot,skillmoves,workrate," +
+            "position,jerseynumber,height,weight,releaseClause " +
+            "from player where unaccent(name) ILIKE unaccent(:playerNamePattern) ")
+    @RegisterBeanMapper(Player.class)
+    List<Player> getListPlayersWithMatchingNamePatterns(@Bind("playerNamePattern") String playerNamePattern);
 }
