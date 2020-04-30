@@ -1,6 +1,7 @@
 package com.footm.informationservice.db;
 
 import com.footm.informationservice.api.Player;
+import com.footm.informationservice.api.PlayerFullSpecification;
 import com.footm.informationservice.api.PlayerPositions;
 import com.footm.informationservice.api.PlayerSkills;
 import org.jdbi.v3.sqlobject.config.RegisterBeanMapper;
@@ -53,4 +54,8 @@ public interface PlayerDao {
             "from player where unaccent(name) ILIKE unaccent(:playerNamePattern) ")
     @RegisterBeanMapper(Player.class)
     List<Player> getListPlayersWithMatchingNamePatterns(@Bind("playerNamePattern") String playerNamePattern);
+
+    @SqlQuery("select * from player where id = :id")
+    @RegisterBeanMapper(PlayerFullSpecification.class)
+    PlayerFullSpecification getPlayerWithFullSpecification(@Bind("id") int id);
 }

@@ -1,6 +1,7 @@
 package com.footm.informationservice.resources;
 
 import com.footm.informationservice.api.Player;
+import com.footm.informationservice.api.PlayerFullSpecification;
 import com.footm.informationservice.api.PlayerPositions;
 import com.footm.informationservice.api.PlayerSkills;
 import com.footm.informationservice.db.PlayerDao;
@@ -61,4 +62,12 @@ public class PlayerResource {
     public List<Player> getListPlayersWithMatchingNamePatterns(@PathParam("playerNamePattern") String playerNamePattern){
         return jdbdi.withExtension(PlayerDao.class, dao -> dao.getListPlayersWithMatchingNamePatterns("%"+playerNamePattern+"%"));
     }
+
+    @GET
+    @Path("/{playerId}/full")
+    @Produces(MediaType.APPLICATION_JSON)
+    public PlayerFullSpecification getPlayerWithFullSpecification(@PathParam("playerId") int id){
+        return jdbdi.withExtension(PlayerDao.class, dao -> dao.getPlayerWithFullSpecification(id));
+    }
+
 }
