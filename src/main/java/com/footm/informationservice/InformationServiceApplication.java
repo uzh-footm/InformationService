@@ -1,5 +1,9 @@
 package com.footm.informationservice;
 
+import com.footm.informationservice.db.ClubDao;
+import com.footm.informationservice.db.LeagueDao;
+import com.footm.informationservice.db.NationalityDao;
+import com.footm.informationservice.db.PlayerDao;
 import com.footm.informationservice.resources.ClubResource;
 import com.footm.informationservice.resources.LeagueResource;
 import com.footm.informationservice.resources.NationalityResource;
@@ -34,10 +38,17 @@ public class InformationServiceApplication extends Application<InformationServic
         //database
         final JdbiFactory factory = new JdbiFactory();
         final Jdbi jdbi = factory.build(environment, configuration.getDataSourceFactory(), "postgresql");
-        environment.jersey().register(new PlayerResource(jdbi));
-        environment.jersey().register(new ClubResource(jdbi));
-        environment.jersey().register(new NationalityResource(jdbi));
-        environment.jersey().register(new LeagueResource(jdbi));
+
+        PlayerDao playerDao = jdbi.onDemand(PlayerDao.class);
+        ClubDao clubDao = jdbi.onDemand(ClubDao.class);
+        NationalityDao nationalityDao = jdbi.onDemand(NationalityDao.class);
+        LeagueDao leagueDao = jdbi.onDemand(LeagueDao.class);
+
+
+        environment.jersey().register(new PlayerResource(playerDao));
+        environment.jersey().register(new ClubResource(clubDao));
+        environment.jersey().register(new NationalityResource(nationalityDao));
+        environment.jersey().register(new LeagueResource(leagueDao));
 
 
     }

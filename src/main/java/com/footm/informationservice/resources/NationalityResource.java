@@ -1,14 +1,10 @@
 package com.footm.informationservice.resources;
 
 import com.footm.informationservice.api.Nationality;
-import com.footm.informationservice.api.Player;
 import com.footm.informationservice.db.NationalityDao;
-import com.footm.informationservice.db.PlayerDao;
-import org.jdbi.v3.core.Jdbi;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
@@ -17,15 +13,15 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 public class NationalityResource {
 
-    private Jdbi jdbdi;
+    private NationalityDao nationalityDao;
 
-    public NationalityResource(Jdbi jdbdi){
-        this.jdbdi=jdbdi;
+    public NationalityResource(NationalityDao nationalityDao) {
+        this.nationalityDao = nationalityDao;
     }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Nationality> getListNationalities(){
-        return jdbdi.withExtension(NationalityDao.class, dao -> dao.getListNationalities());
+    public List<Nationality> getListNationalities() {
+        return nationalityDao.getListNationalities();
     }
 }

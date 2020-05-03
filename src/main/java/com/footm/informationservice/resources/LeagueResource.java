@@ -3,7 +3,6 @@ package com.footm.informationservice.resources;
 
 import com.footm.informationservice.api.League;
 import com.footm.informationservice.db.LeagueDao;
-import org.jdbi.v3.core.Jdbi;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -15,16 +14,16 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 public class LeagueResource {
 
-    private Jdbi jdbdi;
+    private LeagueDao leagueDao;
 
-    public LeagueResource(Jdbi jdbdi) {
-        this.jdbdi = jdbdi;
+    public LeagueResource(LeagueDao leagueDao) {
+        this.leagueDao = leagueDao;
     }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<League> getListLeagues() {
-        return jdbdi.withExtension(LeagueDao.class, dao -> dao.getListLeagues());
+        return leagueDao.getListLeagues();
     }
 
 }

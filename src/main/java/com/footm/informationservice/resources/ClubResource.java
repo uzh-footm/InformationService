@@ -1,12 +1,12 @@
 package com.footm.informationservice.resources;
 
 import com.footm.informationservice.api.Club;
-import com.footm.informationservice.api.Player;
 import com.footm.informationservice.db.ClubDao;
-import com.footm.informationservice.db.PlayerDao;
-import org.jdbi.v3.core.Jdbi;
 
-import javax.ws.rs.*;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -14,29 +14,29 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 public class ClubResource {
 
-    private Jdbi jdbdi;
+    private ClubDao clubDao;
 
-    public ClubResource(Jdbi jdbdi){
-        this.jdbdi=jdbdi;
+    public ClubResource(ClubDao clubDao) {
+        this.clubDao = clubDao;
     }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Club> getListClubs(){
-        return jdbdi.withExtension(ClubDao.class, dao -> dao.getListClubs());
+    public List<Club> getListClubs() {
+        return clubDao.getListClubs();
     }
 
     @GET
     @Path("league/{leagueId}")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Club> getListClubsInLeague(@PathParam("leagueId") String leagueId) {
-        return jdbdi.withExtension(ClubDao.class, dao -> dao.getListClubsInLeague(leagueId));
+        return clubDao.getListClubsInLeague(leagueId);
     }
 
     @GET
     @Path("/search/{clubNamePattern}")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Club> getListClubsWithMatchingNamePatterns(@PathParam("clubNamePattern") String clubNamePattern){
-        return jdbdi.withExtension(ClubDao.class, dao -> dao.getListClubsWithMatchingNamePatterns("%"+clubNamePattern+"%"));
+    public List<Club> getListClubsWithMatchingNamePatterns(@PathParam("clubNamePattern") String clubNamePattern) {
+        return clubDao.getListClubsWithMatchingNamePatterns("%" + clubNamePattern + "%");
     }
 }
