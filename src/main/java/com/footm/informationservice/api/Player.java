@@ -2,6 +2,8 @@ package com.footm.informationservice.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Objects;
+
 public class Player {
     private long id;
     private String name;
@@ -212,5 +214,58 @@ public class Player {
     @JsonProperty
     public void setWeight(int weight) {
         this.weight = weight;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Player player = (Player) o;
+        return id == player.id &&
+                age == player.age &&
+                overall == player.overall &&
+                value == player.value &&
+                wage == player.wage &&
+                releaseClause == player.releaseClause &&
+                skillMoves == player.skillMoves &&
+                jerseyNumber == player.jerseyNumber &&
+                weight == player.weight &&
+                Objects.equals(name, player.name) &&
+                Objects.equals(photo, player.photo) &&
+                Objects.equals(nationality, player.nationality) &&
+                Objects.equals(club, player.club) &&
+                Objects.equals(preferredFoot, player.preferredFoot) &&
+                Objects.equals(workRate, player.workRate) &&
+                Objects.equals(position, player.position) &&
+                Objects.equals(height, player.height);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, name, age, photo, nationality, overall, club, value, wage, releaseClause, preferredFoot, skillMoves, workRate, position, jerseyNumber, height, weight);
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", photo='" + photo + '\'' +
+                ", nationality='" + nationality + '\'' +
+                ", overall=" + overall +
+                ", club='" + club + '\'' +
+                ", value=" + value +
+                ", wage=" + wage +
+                ", releaseClause=" + releaseClause +
+                ", preferredFoot='" + preferredFoot + '\'' +
+                ", skillMoves=" + skillMoves +
+                ", workRate='" + workRate + '\'' +
+                ", position='" + position + '\'' +
+                ", jerseyNumber=" + jerseyNumber +
+                ", height='" + height + '\'' +
+                ", weight=" + weight +
+                '}';
     }
 }

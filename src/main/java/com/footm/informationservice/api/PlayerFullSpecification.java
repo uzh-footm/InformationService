@@ -2,6 +2,8 @@ package com.footm.informationservice.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Objects;
+
 public class PlayerFullSpecification {
     private long id;
     private String name;
@@ -883,5 +885,178 @@ public class PlayerFullSpecification {
     @JsonProperty
     public void setGkReflexes(int gkReflexes) {
         this.gkReflexes = gkReflexes;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PlayerFullSpecification that = (PlayerFullSpecification) o;
+        return id == that.id &&
+                age == that.age &&
+                overall == that.overall &&
+                value == that.value &&
+                wage == that.wage &&
+                releaseClause == that.releaseClause &&
+                skillMoves == that.skillMoves &&
+                jerseyNumber == that.jerseyNumber &&
+                weight == that.weight &&
+                LS == that.LS &&
+                ST == that.ST &&
+                RS == that.RS &&
+                LW == that.LW &&
+                LF == that.LF &&
+                CF == that.CF &&
+                RF == that.RF &&
+                RW == that.RW &&
+                LAM == that.LAM &&
+                CAM == that.CAM &&
+                RAM == that.RAM &&
+                LM == that.LM &&
+                LCM == that.LCM &&
+                CM == that.CM &&
+                RCM == that.RCM &&
+                RM == that.RM &&
+                LWB == that.LWB &&
+                LDM == that.LDM &&
+                CDM == that.CDM &&
+                RDM == that.RDM &&
+                RWB == that.RWB &&
+                LB == that.LB &&
+                LCB == that.LCB &&
+                CB == that.CB &&
+                RCB == that.RCB &&
+                RB == that.RB &&
+                crossing == that.crossing &&
+                finishing == that.finishing &&
+                headingAccuracy == that.headingAccuracy &&
+                shortPassing == that.shortPassing &&
+                volleys == that.volleys &&
+                dribbling == that.dribbling &&
+                curve == that.curve &&
+                fkAccuracy == that.fkAccuracy &&
+                longPassing == that.longPassing &&
+                ballControl == that.ballControl &&
+                acceleration == that.acceleration &&
+                sprintSpeed == that.sprintSpeed &&
+                agility == that.agility &&
+                reactions == that.reactions &&
+                balance == that.balance &&
+                shotPower == that.shotPower &&
+                jumping == that.jumping &&
+                stamina == that.stamina &&
+                strength == that.strength &&
+                longshots == that.longshots &&
+                Aggression == that.Aggression &&
+                interceptions == that.interceptions &&
+                positioning == that.positioning &&
+                vision == that.vision &&
+                penalties == that.penalties &&
+                composure == that.composure &&
+                marking == that.marking &&
+                standingTackle == that.standingTackle &&
+                slidingTackle == that.slidingTackle &&
+                gkDiving == that.gkDiving &&
+                gkHandling == that.gkHandling &&
+                gkKicking == that.gkKicking &&
+                gkPositioning == that.gkPositioning &&
+                gkReflexes == that.gkReflexes &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(photo, that.photo) &&
+                Objects.equals(nationality, that.nationality) &&
+                Objects.equals(club, that.club) &&
+                Objects.equals(preferredFoot, that.preferredFoot) &&
+                Objects.equals(workRate, that.workRate) &&
+                Objects.equals(position, that.position) &&
+                Objects.equals(height, that.height);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, name, age, photo, nationality, overall, club, value, wage, releaseClause, preferredFoot, skillMoves, workRate, position, jerseyNumber, height, weight, LS, ST, RS, LW, LF, CF, RF, RW, LAM, CAM, RAM, LM, LCM, CM, RCM, RM, LWB, LDM, CDM, RDM, RWB, LB, LCB, CB, RCB, RB, crossing, finishing, headingAccuracy, shortPassing, volleys, dribbling, curve, fkAccuracy, longPassing, ballControl, acceleration, sprintSpeed, agility, reactions, balance, shotPower, jumping, stamina, strength, longshots, Aggression, interceptions, positioning, vision, penalties, composure, marking, standingTackle, slidingTackle, gkDiving, gkHandling, gkKicking, gkPositioning, gkReflexes);
+    }
+
+    @Override
+    public String toString() {
+        return "PlayerFullSpecification{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", photo='" + photo + '\'' +
+                ", nationality='" + nationality + '\'' +
+                ", overall=" + overall +
+                ", club='" + club + '\'' +
+                ", value=" + value +
+                ", wage=" + wage +
+                ", releaseClause=" + releaseClause +
+                ", preferredFoot='" + preferredFoot + '\'' +
+                ", skillMoves=" + skillMoves +
+                ", workRate='" + workRate + '\'' +
+                ", position='" + position + '\'' +
+                ", jerseyNumber=" + jerseyNumber +
+                ", height='" + height + '\'' +
+                ", weight=" + weight +
+                ", LS=" + LS +
+                ", ST=" + ST +
+                ", RS=" + RS +
+                ", LW=" + LW +
+                ", LF=" + LF +
+                ", CF=" + CF +
+                ", RF=" + RF +
+                ", RW=" + RW +
+                ", LAM=" + LAM +
+                ", CAM=" + CAM +
+                ", RAM=" + RAM +
+                ", LM=" + LM +
+                ", LCM=" + LCM +
+                ", CM=" + CM +
+                ", RCM=" + RCM +
+                ", RM=" + RM +
+                ", LWB=" + LWB +
+                ", LDM=" + LDM +
+                ", CDM=" + CDM +
+                ", RDM=" + RDM +
+                ", RWB=" + RWB +
+                ", LB=" + LB +
+                ", LCB=" + LCB +
+                ", CB=" + CB +
+                ", RCB=" + RCB +
+                ", RB=" + RB +
+                ", crossing=" + crossing +
+                ", finishing=" + finishing +
+                ", headingAccuracy=" + headingAccuracy +
+                ", shortPassing=" + shortPassing +
+                ", volleys=" + volleys +
+                ", dribbling=" + dribbling +
+                ", curve=" + curve +
+                ", fkAccuracy=" + fkAccuracy +
+                ", longPassing=" + longPassing +
+                ", ballControl=" + ballControl +
+                ", acceleration=" + acceleration +
+                ", sprintSpeed=" + sprintSpeed +
+                ", agility=" + agility +
+                ", reactions=" + reactions +
+                ", balance=" + balance +
+                ", shotPower=" + shotPower +
+                ", jumping=" + jumping +
+                ", stamina=" + stamina +
+                ", strength=" + strength +
+                ", longshots=" + longshots +
+                ", Aggression=" + Aggression +
+                ", interceptions=" + interceptions +
+                ", positioning=" + positioning +
+                ", vision=" + vision +
+                ", penalties=" + penalties +
+                ", composure=" + composure +
+                ", marking=" + marking +
+                ", standingTackle=" + standingTackle +
+                ", slidingTackle=" + slidingTackle +
+                ", gkDiving=" + gkDiving +
+                ", gkHandling=" + gkHandling +
+                ", gkKicking=" + gkKicking +
+                ", gkPositioning=" + gkPositioning +
+                ", gkReflexes=" + gkReflexes +
+                '}';
     }
 }

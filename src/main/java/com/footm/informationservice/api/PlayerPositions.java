@@ -2,11 +2,13 @@ package com.footm.informationservice.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Objects;
+
 public class PlayerPositions {
     private long id;
     private String name;
-    private int LS ,ST , RS , LW,LF ,CF ,RF ,RW ,LAM ,CAM ,RAM ,LM ,LCM ,CM ,RCM ,RM ,LWB ,LDM ,CDM ,RDM ,RWB ,LB ,LCB ,
-            CB , RCB ,RB;
+    private int LS, ST, RS, LW, LF, CF, RF, RW, LAM, CAM, RAM, LM, LCM, CM, RCM, RM, LWB, LDM, CDM, RDM, RWB, LB, LCB,
+            CB, RCB, RB;
 
     public PlayerPositions() {
     }
@@ -319,5 +321,80 @@ public class PlayerPositions {
     @JsonProperty
     public void setRB(int RB) {
         this.RB = RB;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PlayerPositions that = (PlayerPositions) o;
+        return id == that.id &&
+                LS == that.LS &&
+                ST == that.ST &&
+                RS == that.RS &&
+                LW == that.LW &&
+                LF == that.LF &&
+                CF == that.CF &&
+                RF == that.RF &&
+                RW == that.RW &&
+                LAM == that.LAM &&
+                CAM == that.CAM &&
+                RAM == that.RAM &&
+                LM == that.LM &&
+                LCM == that.LCM &&
+                CM == that.CM &&
+                RCM == that.RCM &&
+                RM == that.RM &&
+                LWB == that.LWB &&
+                LDM == that.LDM &&
+                CDM == that.CDM &&
+                RDM == that.RDM &&
+                RWB == that.RWB &&
+                LB == that.LB &&
+                LCB == that.LCB &&
+                CB == that.CB &&
+                RCB == that.RCB &&
+                RB == that.RB &&
+                Objects.equals(name, that.name);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, name, LS, ST, RS, LW, LF, CF, RF, RW, LAM, CAM, RAM, LM, LCM, CM, RCM, RM, LWB, LDM, CDM, RDM, RWB, LB, LCB, CB, RCB, RB);
+    }
+
+    @Override
+    public String toString() {
+        return "PlayerPositions{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", LS=" + LS +
+                ", ST=" + ST +
+                ", RS=" + RS +
+                ", LW=" + LW +
+                ", LF=" + LF +
+                ", CF=" + CF +
+                ", RF=" + RF +
+                ", RW=" + RW +
+                ", LAM=" + LAM +
+                ", CAM=" + CAM +
+                ", RAM=" + RAM +
+                ", LM=" + LM +
+                ", LCM=" + LCM +
+                ", CM=" + CM +
+                ", RCM=" + RCM +
+                ", RM=" + RM +
+                ", LWB=" + LWB +
+                ", LDM=" + LDM +
+                ", CDM=" + CDM +
+                ", RDM=" + RDM +
+                ", RWB=" + RWB +
+                ", LB=" + LB +
+                ", LCB=" + LCB +
+                ", CB=" + CB +
+                ", RCB=" + RCB +
+                ", RB=" + RB +
+                '}';
     }
 }
