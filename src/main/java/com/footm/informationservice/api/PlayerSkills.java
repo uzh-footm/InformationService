@@ -11,14 +11,14 @@ public class PlayerSkills {
             shortPassing, volleys, dribbling, curve, fkAccuracy,
             longPassing, ballControl, acceleration, sprintSpeed,
             agility, reactions, balance, shotPower, jumping, stamina,
-            strength, longshots, Aggression, interceptions, positioning,
+            strength, longshots, aggression, interceptions, positioning,
             vision, penalties, composure, marking, standingTackle, slidingTackle,
             gkDiving, gkHandling, gkKicking, gkPositioning, gkReflexes;
 
     public PlayerSkills() {
     }
 
-    public PlayerSkills(long id, String name, int crossing, int heading, int finishing, int headingAccuracy, int shortPassing, int volleys, int dribbling, int curve, int fkAccuracy, int longPassing, int ballControl, int acceleration, int sprintSpeed, int agility, int reactions, int balance, int shotPower, int jumping, int stamina, int strength, int longshots, int Aggression, int interceptions, int positioning, int vision, int penalties, int composure, int marking, int standingTackle, int slidingTackle, int gkDiving, int gkHandling, int gkKicking, int gkPositioning, int gkReflexes) {
+    public PlayerSkills(long id, String name, int crossing, int finishing, int headingAccuracy, int shortPassing, int volleys, int dribbling, int curve, int fkAccuracy, int longPassing, int ballControl, int acceleration, int sprintSpeed, int agility, int reactions, int balance, int shotPower, int jumping, int stamina, int strength, int longshots, int aggression, int interceptions, int positioning, int vision, int penalties, int composure, int marking, int standingTackle, int slidingTackle, int gkDiving, int gkHandling, int gkKicking, int gkPositioning, int gkReflexes) {
         this.id = id;
         this.name = name;
         this.crossing = crossing;
@@ -41,7 +41,7 @@ public class PlayerSkills {
         this.stamina = stamina;
         this.strength = strength;
         this.longshots = longshots;
-        this.Aggression = Aggression;
+        this.aggression = aggression;
         this.interceptions = interceptions;
         this.positioning = positioning;
         this.vision = vision;
@@ -279,12 +279,12 @@ public class PlayerSkills {
 
     @JsonProperty
     public int getAggression() {
-        return Aggression;
+        return aggression;
     }
 
     @JsonProperty
-    public void setAggression(int Aggression) {
-        this.Aggression = Aggression;
+    public void setAggression(int aggression) {
+        this.aggression = aggression;
     }
 
     @JsonProperty
@@ -443,7 +443,7 @@ public class PlayerSkills {
                 stamina == that.stamina &&
                 strength == that.strength &&
                 longshots == that.longshots &&
-                Aggression == that.Aggression &&
+                aggression == that.aggression &&
                 interceptions == that.interceptions &&
                 positioning == that.positioning &&
                 vision == that.vision &&
@@ -463,7 +463,7 @@ public class PlayerSkills {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, name, crossing, finishing, headingAccuracy, shortPassing, volleys, dribbling, curve, fkAccuracy, longPassing, ballControl, acceleration, sprintSpeed, agility, reactions, balance, shotPower, jumping, stamina, strength, longshots, Aggression, interceptions, positioning, vision, penalties, composure, marking, standingTackle, slidingTackle, gkDiving, gkHandling, gkKicking, gkPositioning, gkReflexes);
+        return Objects.hash(id, name, crossing, finishing, headingAccuracy, shortPassing, volleys, dribbling, curve, fkAccuracy, longPassing, ballControl, acceleration, sprintSpeed, agility, reactions, balance, shotPower, jumping, stamina, strength, longshots, aggression, interceptions, positioning, vision, penalties, composure, marking, standingTackle, slidingTackle, gkDiving, gkHandling, gkKicking, gkPositioning, gkReflexes);
     }
 
     @Override
@@ -491,7 +491,7 @@ public class PlayerSkills {
                 ", stamina=" + stamina +
                 ", strength=" + strength +
                 ", longshots=" + longshots +
-                ", Aggression=" + Aggression +
+                ", aggression=" + aggression +
                 ", interceptions=" + interceptions +
                 ", positioning=" + positioning +
                 ", vision=" + vision +

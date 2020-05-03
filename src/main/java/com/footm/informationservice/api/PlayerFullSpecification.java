@@ -23,18 +23,18 @@ public class PlayerFullSpecification {
     private String height;
     private int weight;
 
-    private int LS, ST, RS, LW, LF, CF, RF, RW, LAM, CAM, RAM, LM, LCM, CM, RCM, RM, LWB, LDM, CDM, RDM, RWB, LB, LCB,
-            CB, RCB, RB;
+    private int ls, st, rs, lw, lf, cf, rf, rw, lam, cam, ram, lm, lcm, cm, rcm, rm, lwb, ldm, cdm, rdm, rwb, lb, lcb,
+            cb, rcb, rb;
 
     private int crossing, finishing, headingAccuracy,
             shortPassing, volleys, dribbling, curve, fkAccuracy,
             longPassing, ballControl, acceleration, sprintSpeed,
             agility, reactions, balance, shotPower, jumping, stamina,
-            strength, longshots, Aggression, interceptions, positioning,
+            strength, longshots, aggression, interceptions, positioning,
             vision, penalties, composure, marking, standingTackle, slidingTackle,
             gkDiving, gkHandling, gkKicking, gkPositioning, gkReflexes;
 
-    public PlayerFullSpecification(long id, String name, int age, String photo, String nationality, int overall, String club, int value, int wage, int releaseClause, String preferredFoot, int skillMoves, String workRate, String position, int jerseyNumber, String height, int weight, int LS, int ST, int RS, int LW, int LF, int CF, int RF, int RW, int LAM, int CAM, int RAM, int LM, int LCM, int CM, int RCM, int RM, int LWB, int LDM, int CDM, int RDM, int RWB, int LB, int LCB, int CB, int RCB, int RB, int crossing, int finishing, int headingAccuracy, int shortPassing, int volleys, int dribbling, int curve, int fkAccuracy, int longPassing, int ballControl, int acceleration, int sprintSpeed, int agility, int reactions, int balance, int shotPower, int jumping, int stamina, int strength, int longshots, int aggression, int interceptions, int positioning, int vision, int penalties, int composure, int marking, int standingTackle, int slidingTackle, int gkDiving, int gkHandling, int gkKicking, int gkPositioning, int gkReflexes) {
+    public PlayerFullSpecification(long id, String name, int age, String photo, String nationality, int overall, String club, int value, int wage, int releaseClause, String preferredFoot, int skillMoves, String workRate, String position, int jerseyNumber, String height, int weight, int ls, int st, int rs, int lw, int lf, int cf, int rf, int rw, int lam, int cam, int ram, int lm, int lcm, int cm, int rcm, int rm, int lwb, int ldm, int cdm, int rdm, int rwb, int lb, int lcb, int cb, int rcb, int rb, int crossing, int finishing, int headingAccuracy, int shortPassing, int volleys, int dribbling, int curve, int fkAccuracy, int longPassing, int ballControl, int acceleration, int sprintSpeed, int agility, int reactions, int balance, int shotPower, int jumping, int stamina, int strength, int longshots, int aggression, int interceptions, int positioning, int vision, int penalties, int composure, int marking, int standingTackle, int slidingTackle, int gkDiving, int gkHandling, int gkKicking, int gkPositioning, int gkReflexes) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -52,32 +52,32 @@ public class PlayerFullSpecification {
         this.jerseyNumber = jerseyNumber;
         this.height = height;
         this.weight = weight;
-        this.LS = LS;
-        this.ST = ST;
-        this.RS = RS;
-        this.LW = LW;
-        this.LF = LF;
-        this.CF = CF;
-        this.RF = RF;
-        this.RW = RW;
-        this.LAM = LAM;
-        this.CAM = CAM;
-        this.RAM = RAM;
-        this.LM = LM;
-        this.LCM = LCM;
-        this.CM = CM;
-        this.RCM = RCM;
-        this.RM = RM;
-        this.LWB = LWB;
-        this.LDM = LDM;
-        this.CDM = CDM;
-        this.RDM = RDM;
-        this.RWB = RWB;
-        this.LB = LB;
-        this.LCB = LCB;
-        this.CB = CB;
-        this.RCB = RCB;
-        this.RB = RB;
+        this.ls = ls;
+        this.st = st;
+        this.rs = rs;
+        this.lw = lw;
+        this.lf = lf;
+        this.cf = cf;
+        this.rf = rf;
+        this.rw = rw;
+        this.lam = lam;
+        this.cam = cam;
+        this.ram = ram;
+        this.lm = lm;
+        this.lcm = lcm;
+        this.cm = cm;
+        this.rcm = rcm;
+        this.rm = rm;
+        this.lwb = lwb;
+        this.ldm = ldm;
+        this.cdm = cdm;
+        this.rdm = rdm;
+        this.rwb = rwb;
+        this.lb = lb;
+        this.lcb = lcb;
+        this.cb = cb;
+        this.rcb = rcb;
+        this.rb = rb;
         this.crossing = crossing;
         this.finishing = finishing;
         this.headingAccuracy = headingAccuracy;
@@ -98,7 +98,7 @@ public class PlayerFullSpecification {
         this.stamina = stamina;
         this.strength = strength;
         this.longshots = longshots;
-        Aggression = aggression;
+        this.aggression = aggression;
         this.interceptions = interceptions;
         this.positioning = positioning;
         this.vision = vision;
@@ -288,265 +288,264 @@ public class PlayerFullSpecification {
     }
 
     @JsonProperty
-    public int getLS() {
-        return LS;
+    public int getLs() {
+        return ls;
     }
 
     @JsonProperty
-    public void setLS(int LS) {
-        this.LS = LS;
+    public void setLs(int ls) {
+        this.ls = ls;
     }
 
     @JsonProperty
-    public int getST() {
-        return ST;
+    public int getSt() {
+        return st;
     }
 
     @JsonProperty
-    public void setST(int ST) {
-        this.ST = ST;
+    public void setSt(int st) {
+        this.st = st;
     }
 
     @JsonProperty
-    public int getRS() {
-        return RS;
+    public int getRs() {
+        return rs;
     }
 
     @JsonProperty
-    public void setRS(int RS) {
-        this.RS = RS;
+    public void setRs(int rs) {
+        this.rs = rs;
     }
 
     @JsonProperty
-    public int getLW() {
-        return LW;
+    public int getLw() {
+        return lw;
     }
 
     @JsonProperty
-    public void setLW(int LW) {
-        this.LW = LW;
+    public void setLw(int lw) {
+        this.lw = lw;
     }
 
     @JsonProperty
-    public int getLF() {
-        return LF;
+    public int getLf() {
+        return lf;
     }
 
     @JsonProperty
-    public void setLF(int LF) {
-        this.LF = LF;
+    public void setLf(int lf) {
+        this.lf = lf;
     }
 
     @JsonProperty
-    public int getCF() {
-        return CF;
+    public int getCf() {
+        return cf;
     }
 
     @JsonProperty
-    public void setCF(int CF) {
-        this.CF = CF;
+    public void setCf(int cf) {
+        this.cf = cf;
     }
 
     @JsonProperty
-    public int getRF() {
-        return RF;
+    public int getRf() {
+        return rf;
     }
 
     @JsonProperty
-    public void setRF(int RF) {
-        this.RF = RF;
+    public void setRf(int rf) {
+        this.rf = rf;
     }
 
     @JsonProperty
-    public int getRW() {
-        return RW;
+    public int getRw() {
+        return rw;
     }
 
     @JsonProperty
-    public void setRW(int RW) {
-        this.RW = RW;
+    public void setRw(int rw) {
+        this.rw = rw;
     }
 
     @JsonProperty
-    public int getLAM() {
-        return LAM;
+    public int getLam() {
+        return lam;
     }
 
     @JsonProperty
-    public void setLAM(int LAM) {
-        this.LAM = LAM;
+    public void setLam(int lam) {
+        this.lam = lam;
     }
 
     @JsonProperty
-    public int getCAM() {
-        return CAM;
+    public int getCam() {
+        return cam;
     }
 
     @JsonProperty
-    public void setCAM(int CAM) {
-        this.CAM = CAM;
+    public void setCam(int cam) {
+        this.cam = cam;
     }
 
     @JsonProperty
-    public int getRAM() {
-        return RAM;
+    public int getRam() {
+        return ram;
     }
 
     @JsonProperty
-    public void setRAM(int RAM) {
-        this.RAM = RAM;
+    public void setRam(int ram) {
+        this.ram = ram;
     }
 
     @JsonProperty
-    public int getLM() {
-        return LM;
+    public int getLm() {
+        return lm;
     }
 
     @JsonProperty
-    public void setLM(int LM) {
-        this.LM = LM;
+    public void setLm(int lm) {
+        this.lm = lm;
     }
 
     @JsonProperty
-    public int getLCM() {
-        return LCM;
+    public int getLcm() {
+        return lcm;
     }
 
     @JsonProperty
-    public void setLCM(int LCM) {
-        this.LCM = LCM;
+    public void setLcm(int lcm) {
+        this.lcm = lcm;
     }
 
     @JsonProperty
-    public int getCM() {
-        return CM;
+    public int getCm() {
+        return cm;
     }
 
     @JsonProperty
-    public void setCM(int CM) {
-        this.CM = CM;
+    public void setCm(int cm) {
+        this.cm = cm;
     }
 
     @JsonProperty
-    public int getRCM() {
-        return RCM;
+    public int getRcm() {
+        return rcm;
     }
 
     @JsonProperty
-    public void setRCM(int RCM) {
-        this.RCM = RCM;
+    public void setRcm(int rcm) {
+        this.rcm = rcm;
     }
 
     @JsonProperty
-    public int getRM() {
-        return RM;
+    public int getRm() {
+        return rm;
     }
 
     @JsonProperty
-    public void setRM(int RM) {
-        this.RM = RM;
+    public void setRm(int rm) {
+        this.rm = rm;
     }
 
     @JsonProperty
-    public int getLWB() {
-        return LWB;
+    public int getLwb() {
+        return lwb;
     }
 
     @JsonProperty
-    public void setLWB(int LWB) {
-        this.LWB = LWB;
+    public void setLwb(int lwb) {
+        this.lwb = lwb;
     }
 
     @JsonProperty
-    public int getLDM() {
-        return LDM;
+    public int getLdm() {
+        return ldm;
     }
 
     @JsonProperty
-    public void setLDM(int LDM) {
-        this.LDM = LDM;
+    public void setLdm(int ldm) {
+        this.ldm = ldm;
     }
 
     @JsonProperty
-    public int getCDM() {
-        return CDM;
+    public int getCdm() {
+        return cdm;
     }
 
     @JsonProperty
-    public void setCDM(int CDM) {
-        this.CDM = CDM;
+    public void setCdm(int cdm) {
+        this.cdm = cdm;
     }
 
     @JsonProperty
-    public int getRDM() {
-        return RDM;
+    public int getRdm() {
+        return rdm;
     }
 
     @JsonProperty
-    public void setRDM(int RDM) {
-        this.RDM = RDM;
+    public void setRdm(int rdm) {
+        this.rdm = rdm;
     }
 
     @JsonProperty
-    public int getRWB() {
-        return RWB;
+    public int getRwb() {
+        return rwb;
     }
 
     @JsonProperty
-    public void setRWB(int RWB) {
-        this.RWB = RWB;
+    public void setRwb(int rwb) {
+        this.rwb = rwb;
     }
 
     @JsonProperty
-    public int getLB() {
-        return LB;
+    public int getLb() {
+        return lb;
     }
 
     @JsonProperty
-    public void setLB(int LB) {
-        this.LB = LB;
+    public void setLb(int lb) {
+        this.lb = lb;
     }
 
     @JsonProperty
-    public int getLCB() {
-        return LCB;
+    public int getLcb() {
+        return lcb;
     }
 
     @JsonProperty
-    public void setLCB(int LCB) {
-        this.LCB = LCB;
+    public void setLcb(int lcb) {
+        this.lcb = lcb;
     }
 
     @JsonProperty
-    public int getCB() {
-        return CB;
+    public int getCb() {
+        return cb;
     }
 
     @JsonProperty
-    public void setCB(int CB) {
-        this.CB = CB;
+    public void setCb(int cb) {
+        this.cb = cb;
     }
 
     @JsonProperty
-    public int getRCB() {
-        return RCB;
+    public int getRcb() {
+        return rcb;
     }
 
     @JsonProperty
-    public void setRCB(int RCB) {
-        this.RCB = RCB;
+    public void setRcb(int rcb) {
+        this.rcb = rcb;
     }
 
     @JsonProperty
-    public int getRB() {
-        return RB;
+    public int getRb() {
+        return rb;
     }
 
     @JsonProperty
-    public void setRB(int RB) {
-        this.RB = RB;
+    public void setRb(int rb) {
+        this.rb = rb;
     }
-
     @JsonProperty
     public int getCrossing() {
         return crossing;
@@ -749,12 +748,12 @@ public class PlayerFullSpecification {
 
     @JsonProperty
     public int getAggression() {
-        return Aggression;
+        return aggression;
     }
 
     @JsonProperty
-    public void setAggression(int Aggression) {
-        this.Aggression = Aggression;
+    public void setAggression(int aggression) {
+        this.aggression = aggression;
     }
 
     @JsonProperty
@@ -901,32 +900,32 @@ public class PlayerFullSpecification {
                 skillMoves == that.skillMoves &&
                 jerseyNumber == that.jerseyNumber &&
                 weight == that.weight &&
-                LS == that.LS &&
-                ST == that.ST &&
-                RS == that.RS &&
-                LW == that.LW &&
-                LF == that.LF &&
-                CF == that.CF &&
-                RF == that.RF &&
-                RW == that.RW &&
-                LAM == that.LAM &&
-                CAM == that.CAM &&
-                RAM == that.RAM &&
-                LM == that.LM &&
-                LCM == that.LCM &&
-                CM == that.CM &&
-                RCM == that.RCM &&
-                RM == that.RM &&
-                LWB == that.LWB &&
-                LDM == that.LDM &&
-                CDM == that.CDM &&
-                RDM == that.RDM &&
-                RWB == that.RWB &&
-                LB == that.LB &&
-                LCB == that.LCB &&
-                CB == that.CB &&
-                RCB == that.RCB &&
-                RB == that.RB &&
+                ls == that.ls &&
+                st == that.st &&
+                rs == that.rs &&
+                lw == that.lw &&
+                lf == that.lf &&
+                cf == that.cf &&
+                rf == that.rf &&
+                rw == that.rw &&
+                lam == that.lam &&
+                cam == that.cam &&
+                ram == that.ram &&
+                lm == that.lm &&
+                lcm == that.lcm &&
+                cm == that.cm &&
+                rcm == that.rcm &&
+                rm == that.rm &&
+                lwb == that.lwb &&
+                ldm == that.ldm &&
+                cdm == that.cdm &&
+                rdm == that.rdm &&
+                rwb == that.rwb &&
+                lb == that.lb &&
+                lcb == that.lcb &&
+                cb == that.cb &&
+                rcb == that.rcb &&
+                rb == that.rb &&
                 crossing == that.crossing &&
                 finishing == that.finishing &&
                 headingAccuracy == that.headingAccuracy &&
@@ -947,7 +946,7 @@ public class PlayerFullSpecification {
                 stamina == that.stamina &&
                 strength == that.strength &&
                 longshots == that.longshots &&
-                Aggression == that.Aggression &&
+                aggression == that.aggression &&
                 interceptions == that.interceptions &&
                 positioning == that.positioning &&
                 vision == that.vision &&
@@ -974,7 +973,7 @@ public class PlayerFullSpecification {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, name, age, photo, nationality, overall, club, value, wage, releaseClause, preferredFoot, skillMoves, workRate, position, jerseyNumber, height, weight, LS, ST, RS, LW, LF, CF, RF, RW, LAM, CAM, RAM, LM, LCM, CM, RCM, RM, LWB, LDM, CDM, RDM, RWB, LB, LCB, CB, RCB, RB, crossing, finishing, headingAccuracy, shortPassing, volleys, dribbling, curve, fkAccuracy, longPassing, ballControl, acceleration, sprintSpeed, agility, reactions, balance, shotPower, jumping, stamina, strength, longshots, Aggression, interceptions, positioning, vision, penalties, composure, marking, standingTackle, slidingTackle, gkDiving, gkHandling, gkKicking, gkPositioning, gkReflexes);
+        return Objects.hash(id, name, age, photo, nationality, overall, club, value, wage, releaseClause, preferredFoot, skillMoves, workRate, position, jerseyNumber, height, weight, ls, st, rs, lw, lf, cf, rf, rw, lam, cam, ram, lm, lcm, cm, rcm, rm, lwb, ldm, cdm, rdm, rwb, lb, lcb, cb, rcb, rb, crossing, finishing, headingAccuracy, shortPassing, volleys, dribbling, curve, fkAccuracy, longPassing, ballControl, acceleration, sprintSpeed, agility, reactions, balance, shotPower, jumping, stamina, strength, longshots, aggression, interceptions, positioning, vision, penalties, composure, marking, standingTackle, slidingTackle, gkDiving, gkHandling, gkKicking, gkPositioning, gkReflexes);
     }
 
     @Override
@@ -997,32 +996,32 @@ public class PlayerFullSpecification {
                 ", jerseyNumber=" + jerseyNumber +
                 ", height='" + height + '\'' +
                 ", weight=" + weight +
-                ", LS=" + LS +
-                ", ST=" + ST +
-                ", RS=" + RS +
-                ", LW=" + LW +
-                ", LF=" + LF +
-                ", CF=" + CF +
-                ", RF=" + RF +
-                ", RW=" + RW +
-                ", LAM=" + LAM +
-                ", CAM=" + CAM +
-                ", RAM=" + RAM +
-                ", LM=" + LM +
-                ", LCM=" + LCM +
-                ", CM=" + CM +
-                ", RCM=" + RCM +
-                ", RM=" + RM +
-                ", LWB=" + LWB +
-                ", LDM=" + LDM +
-                ", CDM=" + CDM +
-                ", RDM=" + RDM +
-                ", RWB=" + RWB +
-                ", LB=" + LB +
-                ", LCB=" + LCB +
-                ", CB=" + CB +
-                ", RCB=" + RCB +
-                ", RB=" + RB +
+                ", ls=" + ls +
+                ", st=" + st +
+                ", rs=" + rs +
+                ", lw=" + lw +
+                ", lf=" + lf +
+                ", cf=" + cf +
+                ", rf=" + rf +
+                ", rw=" + rw +
+                ", lam=" + lam +
+                ", cam=" + cam +
+                ", ram=" + ram +
+                ", lm=" + lm +
+                ", lcm=" + lcm +
+                ", cm=" + cm +
+                ", rcm=" + rcm +
+                ", rm=" + rm +
+                ", lwb=" + lwb +
+                ", ldm=" + ldm +
+                ", cdm=" + cdm +
+                ", rdm=" + rdm +
+                ", rwb=" + rwb +
+                ", lb=" + lb +
+                ", lcb=" + lcb +
+                ", cb=" + cb +
+                ", rcb=" + rcb +
+                ", rb=" + rb +
                 ", crossing=" + crossing +
                 ", finishing=" + finishing +
                 ", headingAccuracy=" + headingAccuracy +
@@ -1043,7 +1042,7 @@ public class PlayerFullSpecification {
                 ", stamina=" + stamina +
                 ", strength=" + strength +
                 ", longshots=" + longshots +
-                ", Aggression=" + Aggression +
+                ", Aggression=" + aggression +
                 ", interceptions=" + interceptions +
                 ", positioning=" + positioning +
                 ", vision=" + vision +
