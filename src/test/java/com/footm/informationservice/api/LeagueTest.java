@@ -7,12 +7,12 @@ import org.junit.jupiter.api.Test;
 import static io.dropwizard.testing.FixtureHelpers.fixture;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class LeagueTest {
+class LeagueTest {
 
     private static final ObjectMapper MAPPER = Jackson.newObjectMapper();
 
     @Test
-    public void serializeToJson() throws Exception {
+    void serializeToJson() throws Exception {
         final League league = new League("Argentina Primera División");
 
         final String expected = MAPPER.writeValueAsString(MAPPER.readValue(fixture("fixtures/league.json"), League.class));
@@ -21,7 +21,7 @@ public class LeagueTest {
     }
 
     @Test
-    public void deserializesFromJSON() throws Exception {
+    void deserializesFromJSON() throws Exception {
         final League league = new League("Argentina Primera División");
 
         assertThat(MAPPER.readValue(fixture("fixtures/league.json"), League.class))

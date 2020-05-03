@@ -7,11 +7,11 @@ import org.junit.jupiter.api.Test;
 import static io.dropwizard.testing.FixtureHelpers.fixture;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class PlayerPositionsTest {
+class PlayerPositionsTest {
     private static final ObjectMapper MAPPER = Jackson.newObjectMapper();
 
     @Test
-    public void serializeToJson() throws Exception {
+    void serializeToJson() throws Exception {
         final PlayerPositions playerPositions = new PlayerPositions(41, "Iniesta", 74, 74, 74,
                 82, 81, 81, 81, 82, 85, 85, 85, 82, 83, 83, 83,
                 82, 71, 73, 73, 73, 71, 68, 63, 63, 63, 68);
@@ -22,7 +22,7 @@ public class PlayerPositionsTest {
     }
 
     @Test
-    public void deserializesFromJSON() throws Exception {
+    void deserializesFromJSON() throws Exception {
         final PlayerPositions playerPositions = new PlayerPositions(41, "Iniesta", 74, 74, 74,
                 82, 81, 81, 81, 82, 85, 85, 85, 82, 83, 83, 83,
                 82, 71, 73, 73, 73, 71, 68, 63, 63, 63, 68);
