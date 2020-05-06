@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import javax.ws.rs.core.GenericType;
+import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,6 +47,19 @@ class PlayerResourceTest {
     }
 
     @Test
+    void getPlayerNotFound() {
+        when(dao.getPlayer(4242)).thenReturn(null);
+
+        Response expectedResponse = RULE.target("/player")
+                .path("4242")
+                .request()
+                .get();
+
+        assertThat(expectedResponse.getStatusInfo()).isEqualTo(Response.Status.NOT_FOUND);
+        verify(dao).getPlayer(4242);
+    }
+
+    @Test
     void getPlayerSkillsSuccess() {
         PlayerSkills playerSkills = new PlayerSkills();
         when(dao.getPlayerSkills(4)).thenReturn(playerSkills);
@@ -61,6 +75,20 @@ class PlayerResourceTest {
     }
 
     @Test
+    void getPlayerSkillsNotFound() {
+        when(dao.getPlayerSkills(4242)).thenReturn(null);
+
+        Response expectedResponse = RULE.target("/player")
+                .path("4242")
+                .path("skills")
+                .request()
+                .get();
+
+        assertThat(expectedResponse.getStatusInfo()).isEqualTo(Response.Status.NOT_FOUND);
+        verify(dao).getPlayerSkills(4242);
+    }
+
+    @Test
     void getPlayerPositionsSuccess() {
         PlayerPositions playerPositions = new PlayerPositions();
         when(dao.getPlayerPositions(4)).thenReturn(playerPositions);
@@ -73,6 +101,20 @@ class PlayerResourceTest {
 
         assertThat(expectedPlayerPositions).isEqualTo(playerPositions);
         verify(dao).getPlayerPositions(4);
+    }
+
+    @Test
+    void getPlayerPositionsNotFound() {
+        when(dao.getPlayerPositions(4242)).thenReturn(null);
+
+        Response expectedResponse = RULE.target("/player")
+                .path("4242")
+                .path("positions")
+                .request()
+                .get();
+
+        assertThat(expectedResponse.getStatusInfo()).isEqualTo(Response.Status.NOT_FOUND);
+        verify(dao).getPlayerPositions(4242);
     }
 
     @Test
@@ -94,6 +136,20 @@ class PlayerResourceTest {
     }
 
     @Test
+    void getPlayersInClubNotFound() {
+        when(dao.getPlayersInClub("No name club")).thenReturn(null);
+
+        Response expectedResponse = RULE.target("/player")
+                .path("club")
+                .path("No name club")
+                .request()
+                .get();
+
+        assertThat(expectedResponse.getStatusInfo()).isEqualTo(Response.Status.NOT_FOUND);
+        verify(dao).getPlayersInClub("No name club");
+    }
+
+    @Test
     void getPlayersInNationalitySuccess() {
         List<Player> playersInNationality = new ArrayList<>();
         playersInNationality.add(new Player());
@@ -109,6 +165,20 @@ class PlayerResourceTest {
 
         assertThat(expectedPlayersInNationality).isEqualTo(playersInNationality);
         verify(dao).getPlayersInNationality("Argentina");
+    }
+
+    @Test
+    void getPlayersInNationalityNotFound() {
+        when(dao.getPlayersInClub("No name nationality")).thenReturn(null);
+
+        Response expectedResponse = RULE.target("/player")
+                .path("nationality")
+                .path("No name nationality")
+                .request()
+                .get();
+
+        assertThat(expectedResponse.getStatusInfo()).isEqualTo(Response.Status.NOT_FOUND);
+        verify(dao).getPlayersInNationality("No name nationality");
     }
 
     @Test
@@ -141,5 +211,19 @@ class PlayerResourceTest {
 
         assertThat(expectedPlayerFullSpecification).isEqualTo(playerFullSpecification);
         verify(dao).getPlayerWithFullSpecification(4);
+    }
+
+    @Test
+    void getPlayerWithFullSpecificationNotFound() {
+        when(dao.getPlayerWithFullSpecification(4242)).thenReturn(null);
+
+        Response expectedResponse = RULE.target("/player")
+                .path("4242")
+                .path("full")
+                .request()
+                .get();
+
+        assertThat(expectedResponse.getStatusInfo()).isEqualTo(Response.Status.NOT_FOUND);
+        verify(dao).getPlayerWithFullSpecification(4242);
     }
 }

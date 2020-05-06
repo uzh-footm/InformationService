@@ -6,11 +6,9 @@ import com.footm.informationservice.api.PlayerPositions;
 import com.footm.informationservice.api.PlayerSkills;
 import com.footm.informationservice.db.PlayerDao;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Path("player")
@@ -26,35 +24,60 @@ public class PlayerResource {
     @Path("/{playerId}")
     @Produces(MediaType.APPLICATION_JSON)
     public Player getPlayer(@PathParam("playerId") int id) {
-        return playerDao.getPlayer(id);
+        Player player = playerDao.getPlayer(id);
+
+        if (player != null) {
+            return player;
+        }
+        throw new WebApplicationException(Response.Status.NOT_FOUND);
     }
 
     @GET
     @Path("/{playerId}/skills")
     @Produces(MediaType.APPLICATION_JSON)
     public PlayerSkills getPlayerSkills(@PathParam("playerId") int id) {
-        return playerDao.getPlayerSkills(id);
+        PlayerSkills playerSkills = playerDao.getPlayerSkills(id);
+
+        if (playerSkills != null) {
+            return playerSkills;
+        }
+        throw new WebApplicationException(Response.Status.NOT_FOUND);
     }
 
     @GET
     @Path("/{playerId}/positions")
     @Produces(MediaType.APPLICATION_JSON)
     public PlayerPositions getPlayerPositions(@PathParam("playerId") int id) {
-        return playerDao.getPlayerPositions(id);
+        PlayerPositions playerPositions = playerDao.getPlayerPositions(id);
+
+        if (playerPositions != null) {
+            return playerPositions;
+        }
+        throw new WebApplicationException(Response.Status.NOT_FOUND);
     }
 
     @GET
     @Path("/club/{clubId}")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Player> getPlayersInClub(@PathParam("clubId") String clubId) {
-        return playerDao.getPlayersInClub(clubId);
+        List<Player> listPlayersInClub = playerDao.getPlayersInClub(clubId);
+
+        if (listPlayersInClub != null && !listPlayersInClub.isEmpty()) {
+            return listPlayersInClub;
+        }
+        throw new WebApplicationException(Response.Status.NOT_FOUND);
     }
 
     @GET
     @Path("/nationality/{nationalityId}")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Player> getPlayersInNationality(@PathParam("nationalityId") String nationalityId) {
-        return playerDao.getPlayersInNationality(nationalityId);
+        List<Player> listPlayersInNationality = playerDao.getPlayersInNationality(nationalityId);
+
+        if (listPlayersInNationality != null && !listPlayersInNationality.isEmpty()) {
+            return listPlayersInNationality;
+        }
+        throw new WebApplicationException(Response.Status.NOT_FOUND);
     }
 
     @GET
@@ -68,7 +91,11 @@ public class PlayerResource {
     @Path("/{playerId}/full")
     @Produces(MediaType.APPLICATION_JSON)
     public PlayerFullSpecification getPlayerWithFullSpecification(@PathParam("playerId") int id) {
-        return playerDao.getPlayerWithFullSpecification(id);
-    }
+        PlayerFullSpecification playerFullSpecification = playerDao.getPlayerWithFullSpecification(id);
 
+        if (playerFullSpecification != null) {
+            return playerFullSpecification;
+        }
+        throw new WebApplicationException(Response.Status.NOT_FOUND);
+    }
 }
