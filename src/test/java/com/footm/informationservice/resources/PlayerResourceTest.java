@@ -37,7 +37,7 @@ class PlayerResourceTest {
         Player player = new Player();
         when(dao.getPlayer(4)).thenReturn(player);
 
-        Player expectedPlayer = RULE.target("/player")
+        Player expectedPlayer = RULE.target("/players")
                 .path("4")
                 .request()
                 .get(Player.class);
@@ -50,7 +50,7 @@ class PlayerResourceTest {
     void getPlayerNotFound() {
         when(dao.getPlayer(4242)).thenReturn(null);
 
-        Response expectedResponse = RULE.target("/player")
+        Response expectedResponse = RULE.target("/players")
                 .path("4242")
                 .request()
                 .get();
@@ -64,7 +64,7 @@ class PlayerResourceTest {
         PlayerSkills playerSkills = new PlayerSkills();
         when(dao.getPlayerSkills(4)).thenReturn(playerSkills);
 
-        PlayerSkills expectedPlayerSkills = RULE.target("/player")
+        PlayerSkills expectedPlayerSkills = RULE.target("/players")
                 .path("4")
                 .path("skills")
                 .request()
@@ -78,7 +78,7 @@ class PlayerResourceTest {
     void getPlayerSkillsNotFound() {
         when(dao.getPlayerSkills(4242)).thenReturn(null);
 
-        Response expectedResponse = RULE.target("/player")
+        Response expectedResponse = RULE.target("/players")
                 .path("4242")
                 .path("skills")
                 .request()
@@ -93,7 +93,7 @@ class PlayerResourceTest {
         PlayerPositions playerPositions = new PlayerPositions();
         when(dao.getPlayerPositions(4)).thenReturn(playerPositions);
 
-        PlayerPositions expectedPlayerPositions = RULE.target("/player")
+        PlayerPositions expectedPlayerPositions = RULE.target("/players")
                 .path("4")
                 .path("positions")
                 .request()
@@ -107,7 +107,7 @@ class PlayerResourceTest {
     void getPlayerPositionsNotFound() {
         when(dao.getPlayerPositions(4242)).thenReturn(null);
 
-        Response expectedResponse = RULE.target("/player")
+        Response expectedResponse = RULE.target("/players")
                 .path("4242")
                 .path("positions")
                 .request()
@@ -124,7 +124,7 @@ class PlayerResourceTest {
         playersInClub.add(new Player());
         when(dao.getPlayersInClub("Chelsea")).thenReturn(playersInClub);
 
-        List<Player> expectedPlayersInClub = RULE.target("/player")
+        List<Player> expectedPlayersInClub = RULE.target("/players")
                 .path("club")
                 .path("Chelsea")
                 .request()
@@ -139,7 +139,7 @@ class PlayerResourceTest {
     void getPlayersInClubNotFound() {
         when(dao.getPlayersInClub("No name club")).thenReturn(null);
 
-        Response expectedResponse = RULE.target("/player")
+        Response expectedResponse = RULE.target("/players")
                 .path("club")
                 .path("No name club")
                 .request()
@@ -156,7 +156,7 @@ class PlayerResourceTest {
         playersInNationality.add(new Player());
         when(dao.getPlayersInNationality("Argentina")).thenReturn(playersInNationality);
 
-        List<Player> expectedPlayersInNationality = RULE.target("/player")
+        List<Player> expectedPlayersInNationality = RULE.target("/players")
                 .path("nationality")
                 .path("Argentina")
                 .request()
@@ -171,7 +171,7 @@ class PlayerResourceTest {
     void getPlayersInNationalityNotFound() {
         when(dao.getPlayersInClub("No name nationality")).thenReturn(null);
 
-        Response expectedResponse = RULE.target("/player")
+        Response expectedResponse = RULE.target("/players")
                 .path("nationality")
                 .path("No name nationality")
                 .request()
@@ -187,7 +187,7 @@ class PlayerResourceTest {
         listPlayersWithMatchingNamePatterns.add(new Player());
         when(dao.getListPlayersWithMatchingNamePatterns("%kaka%")).thenReturn(listPlayersWithMatchingNamePatterns);
 
-        List<Player> expectedListPlayersWithMatchingNamePatterns = RULE.target("/player")
+        List<Player> expectedListPlayersWithMatchingNamePatterns = RULE.target("/players")
                 .path("search")
                 .path("kaka")
                 .request()
@@ -203,7 +203,7 @@ class PlayerResourceTest {
         PlayerFullSpecification playerFullSpecification = new PlayerFullSpecification();
         when(dao.getPlayerWithFullSpecification(4)).thenReturn(playerFullSpecification);
 
-        PlayerFullSpecification expectedPlayerFullSpecification = RULE.target("/player")
+        PlayerFullSpecification expectedPlayerFullSpecification = RULE.target("/players")
                 .path("4")
                 .path("full")
                 .request()
@@ -217,7 +217,7 @@ class PlayerResourceTest {
     void getPlayerWithFullSpecificationNotFound() {
         when(dao.getPlayerWithFullSpecification(4242)).thenReturn(null);
 
-        Response expectedResponse = RULE.target("/player")
+        Response expectedResponse = RULE.target("/players")
                 .path("4242")
                 .path("full")
                 .request()
