@@ -3,11 +3,9 @@ package com.footm.informationservice.resources;
 import com.footm.informationservice.api.Club;
 import com.footm.informationservice.db.ClubDao;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Path("clubs")
@@ -30,7 +28,12 @@ public class ClubResource {
     @Path("league/{leagueId}")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Club> getListClubsInLeague(@PathParam("leagueId") String leagueId) {
-        return clubDao.getListClubsInLeague(leagueId);
+        List<Club> listClubsInLeague = clubDao.getListClubsInLeague(leagueId);
+
+        if (listClubsInLeague != null && !listClubsInLeague.isEmpty()) {
+            return listClubsInLeague;
+        }
+        throw new WebApplicationException(Response.Status.NOT_FOUND);
     }
 
     @GET

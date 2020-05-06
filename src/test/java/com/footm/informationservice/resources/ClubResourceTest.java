@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import javax.ws.rs.core.GenericType;
+import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,6 +65,20 @@ class ClubResourceTest {
         assertThat(expectedLeagues.get(0)).isEqualTo(new Club("Chelsea", "https://cdn.sofifa.org/teams/2/light/5.png"));
         assertThat(expectedLeagues.get(1)).isEqualTo(new Club("Bournemouth", "https://cdn.sofifa.org/teams/2/light/1943.png"));
         verify(dao).getListClubsInLeague("English Premier League");
+    }
+
+    @Test
+    void getListClubsInLeagueNotFound() {
+        when(dao.getListClubsInLeague("Non existing league")).thenReturn(null);
+
+        Response expectedResponse = RULE.target("/clubs")
+                .path("league")
+                .path("Non existing league")
+                .request()
+                .get();
+
+        assertThat(expectedResponse.getStatusInfo()).isEqualTo(Response.Status.NOT_FOUND);
+        verify(dao).getListClubsInLeague("Non existing league");
     }
 
     @Test
