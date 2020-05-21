@@ -25,6 +25,17 @@ public class ClubResource {
     }
 
     @GET
+    @Path("{clubId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Club getClubWithId(@PathParam("clubId") String clubId) {
+        Club club = clubDao.getClubWithId(clubId);
+        if (club != null) {
+            return club;
+        }
+        throw new WebApplicationException(Response.Status.NOT_FOUND);
+    }
+
+    @GET
     @Path("league/{leagueId}")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Club> getListClubsInLeague(@PathParam("leagueId") String leagueId) {

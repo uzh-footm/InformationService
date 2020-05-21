@@ -82,6 +82,33 @@ class ClubResourceTest {
     }
 
     @Test
+    void getClubWithIdSuccess() {
+        Club club = new Club();
+        when(dao.getClubWithId("AC Horsens")).thenReturn(club);
+
+        Club expectedClub = RULE.target("/clubs")
+                .path("AC Horsens")
+                .request()
+                .get(Club.class);
+
+        Assertions.assertThat(expectedClub).isEqualTo(club);
+        verify(dao).getClubWithId("AC Horsens");
+    }
+
+    @Test
+    void getClubWithIdNotFound() {
+        when(dao.getClubWithId("BAD NAME")).thenReturn(null);
+
+        Response expectedResponse = RULE.target("/clubs")
+                .path("BAD NAME")
+                .request()
+                .get();
+
+        Assertions.assertThat(expectedResponse.getStatusInfo()).isEqualTo(Response.Status.NOT_FOUND);
+        verify(dao).getClubWithId("BAD NAME");
+    }
+
+    @Test
     void getListPlayersWithMatchingNamePatternsSuccess() {
         List<Club> listClubsWithMatchingNamePatterns = new ArrayList<>();
         listClubsWithMatchingNamePatterns.add(new Club());
