@@ -3,6 +3,7 @@ package com.footm.informationservice.resources;
 import com.footm.informationservice.api.Club;
 import com.footm.informationservice.db.ClubDao;
 
+import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -27,7 +28,7 @@ public class ClubResource {
     @GET
     @Path("{clubId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Club getClubWithId(@PathParam("clubId") String clubId) {
+    public Club getClubWithId(@NotNull @PathParam("clubId") String clubId) {
         Club club = clubDao.getClubWithId(clubId);
         if (club != null) {
             return club;
@@ -38,7 +39,7 @@ public class ClubResource {
     @GET
     @Path("league/{leagueId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Club> getListClubsInLeague(@PathParam("leagueId") String leagueId) {
+    public List<Club> getListClubsInLeague(@NotNull @PathParam("leagueId") String leagueId) {
         List<Club> listClubsInLeague = clubDao.getListClubsInLeague(leagueId);
 
         if (listClubsInLeague != null && !listClubsInLeague.isEmpty()) {

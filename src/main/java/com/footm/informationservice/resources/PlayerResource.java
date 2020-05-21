@@ -6,6 +6,7 @@ import com.footm.informationservice.api.PlayerPositions;
 import com.footm.informationservice.api.PlayerSkills;
 import com.footm.informationservice.db.PlayerDao;
 
+import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -23,7 +24,7 @@ public class PlayerResource {
     @GET
     @Path("/{playerId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Player getPlayer(@PathParam("playerId") int id) {
+    public Player getPlayer(@NotNull @PathParam("playerId") int id) {
         Player player = playerDao.getPlayer(id);
 
         if (player != null) {
@@ -35,7 +36,7 @@ public class PlayerResource {
     @GET
     @Path("/{playerId}/skills")
     @Produces(MediaType.APPLICATION_JSON)
-    public PlayerSkills getPlayerSkills(@PathParam("playerId") int id) {
+    public PlayerSkills getPlayerSkills(@NotNull @PathParam("playerId") int id) {
         PlayerSkills playerSkills = playerDao.getPlayerSkills(id);
 
         if (playerSkills != null) {
@@ -47,7 +48,7 @@ public class PlayerResource {
     @GET
     @Path("/{playerId}/positions")
     @Produces(MediaType.APPLICATION_JSON)
-    public PlayerPositions getPlayerPositions(@PathParam("playerId") int id) {
+    public PlayerPositions getPlayerPositions(@NotNull @PathParam("playerId") int id) {
         PlayerPositions playerPositions = playerDao.getPlayerPositions(id);
 
         if (playerPositions != null) {
@@ -59,7 +60,7 @@ public class PlayerResource {
     @GET
     @Path("/club/{clubId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Player> getPlayersInClub(@PathParam("clubId") String clubId) {
+    public List<Player> getPlayersInClub(@NotNull @PathParam("clubId") String clubId) {
         List<Player> listPlayersInClub = playerDao.getPlayersInClub(clubId);
 
         if (listPlayersInClub != null && !listPlayersInClub.isEmpty()) {
@@ -71,7 +72,7 @@ public class PlayerResource {
     @GET
     @Path("/nationality/{nationalityId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Player> getPlayersInNationality(@PathParam("nationalityId") String nationalityId) {
+    public List<Player> getPlayersInNationality(@NotNull @PathParam("nationalityId") String nationalityId) {
         List<Player> listPlayersInNationality = playerDao.getPlayersInNationality(nationalityId);
 
         if (listPlayersInNationality != null && !listPlayersInNationality.isEmpty()) {
@@ -90,7 +91,7 @@ public class PlayerResource {
     @GET
     @Path("/{playerId}/full")
     @Produces(MediaType.APPLICATION_JSON)
-    public PlayerFullSpecification getPlayerWithFullSpecification(@PathParam("playerId") int id) {
+    public PlayerFullSpecification getPlayerWithFullSpecification(@NotNull @PathParam("playerId") int id) {
         PlayerFullSpecification playerFullSpecification = playerDao.getPlayerWithFullSpecification(id);
 
         if (playerFullSpecification != null) {
