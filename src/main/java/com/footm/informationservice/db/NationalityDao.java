@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface NationalityDao {
 
-    @SqlQuery("Select nationality AS id, Logo from nationalities")
+    @SqlQuery("Select nationality AS id, Logo from nationalities ORDER BY nationality ASC")
     @RegisterBeanMapper(Nationality.class)
     List<Nationality> getListNationalities();
 }
