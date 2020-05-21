@@ -99,4 +99,24 @@ public class PlayerResource {
         }
         throw new WebApplicationException(Response.Status.NOT_FOUND);
     }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Player> getListPlayersMatchingTheQuery(@NotNull @QueryParam("sort") String sort,
+                                                       @QueryParam("nationality") String nationality,
+                                                       @QueryParam("position") String playerPosition,
+                                                       @NotNull @QueryParam("ovrGte") Integer ovrGte,
+                                                       @NotNull @QueryParam("ovrLte") Integer ovrLte) {
+
+        if (nationality != null && playerPosition != null) {
+            return playerDao.filterPlayersWithSortNationalityPlayerPositionOvrGteOvrLte(sort, nationality, playerPosition, ovrGte, ovrLte);
+        } else if (nationality != null) {
+            return playerDao.filterPlayersWithSortOverGteOvrLtNationality(sort, ovrGte, ovrLte, nationality);
+        } else if (playerPosition != null) {
+            return playerDao.filterPlayersWithSortOverGteOvrLtPosition(sort, ovrGte, ovrLte, playerPosition);
+        } else {
+            return playerDao.filterPlayersWithSortOverGteOvrLte(sort, ovrGte, ovrLte);
+        }
+    }
+
 }
