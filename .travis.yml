@@ -2,5 +2,20 @@ language: java
 jdk:
   - openjdk8
 
+addons:
+  sonarcloud:
+    organization: "uzh-footm"
+    token: ${SONAR_TOKEN}  # encrypted value of your token
+
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - mvn clean jacoco:report install sonar:sonar -Dsonar.projectKey=uzh-footm_InformationService -Ddockerfile.skip
+
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
+
+
 after_success:
-  - mvn clean test jacoco:report coveralls:report
+  - mvn clean test jacoco:report coveralls:report -Ddockerfile.skip
