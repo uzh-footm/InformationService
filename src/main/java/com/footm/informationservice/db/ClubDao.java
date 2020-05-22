@@ -13,15 +13,15 @@ public interface ClubDao {
     @RegisterBeanMapper(Club.class)
     List<Club> getListClubs();
 
-    @SqlQuery("Select club AS id, Logo from clubs where league = :leagueId")
+    @SqlQuery("Select club AS id, Logo from clubs where unaccent(league) = unaccent(:leagueId)")
     @RegisterBeanMapper(Club.class)
     List<Club> getListClubsInLeague(@Bind("leagueId") String leagueId);
 
-    @SqlQuery("Select club AS id, Logo from clubs where unaccent(club) ILIKE unaccent(:clubNamePattern)")
+    @SqlQuery("Select club AS id, Logo from clubs where unaccent(club) ILIKE unaccent(:clubNamePattern) LIMIT 30")
     @RegisterBeanMapper(Club.class)
     List<Club> getListClubsWithMatchingNamePatterns(@Bind("clubNamePattern") String clubNamePattern);
 
-    @SqlQuery("Select club AS id, Logo from clubs where unaccent(club) = :clubId)")
+    @SqlQuery("Select club AS id, Logo from clubs where unaccent(club) = unaccent(:clubId)")
     @RegisterBeanMapper(Club.class)
-    Club getClubWithId(String clubId);
+    Club getClubWithId(@Bind("clubId") String clubId);
 }

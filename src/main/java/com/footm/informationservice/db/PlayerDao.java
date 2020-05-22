@@ -38,21 +38,21 @@ public interface PlayerDao {
     @SqlQuery("select id,name,age,photo,nationality,overall,club," +
             "value,wage,preferredfoot,skillmoves,workrate," +
             "position,jerseynumber,height,weight,releaseClause " +
-            "from player where club = :clubId ")
+            "from player where unaccent(club) = unaccent(:clubId) ")
     @RegisterBeanMapper(Player.class)
     List<Player> getPlayersInClub(@Bind("clubId") String clubId);
 
     @SqlQuery("select id,name,age,photo,nationality,overall,club," +
             "value,wage,preferredfoot,skillmoves,workrate," +
             "position,jerseynumber,height,weight,releaseClause " +
-            "from player where Nationality = :nationalityId ")
+            "from player where unaccent(Nationality) = unaccent(:nationalityId) ")
     @RegisterBeanMapper(Player.class)
     List<Player> getPlayersInNationality(@Bind("nationalityId") String nationalityId);
 
     @SqlQuery("select id,name,age,photo,nationality,overall,club," +
             "value,wage,preferredfoot,skillmoves,workrate," +
             "position,jerseynumber,height,weight,releaseClause " +
-            "from player where unaccent(name) ILIKE unaccent(:playerNamePattern) ")
+            "from player where unaccent(name) ILIKE unaccent(:playerNamePattern) LIMIT 30 ")
     @RegisterBeanMapper(Player.class)
     List<Player> getListPlayersWithMatchingNamePatterns(@Bind("playerNamePattern") String playerNamePattern);
 
@@ -65,10 +65,11 @@ public interface PlayerDao {
             "position,jerseynumber,height,weight,releaseClause " +
             "from player " +
             "where position = :playerPosition " +
-            "AND nationality = :nationality " +
+            "AND unaccent(nationality) = unaccent(:nationality) " +
             "AND overall >= :ovrGte " +
             "AND overall <= :ovrLte " +
-            "ORDER BY overall <sort>")
+            "ORDER BY overall <sort> " +
+            "LIMIT 30")
     @RegisterBeanMapper(Player.class)
     List<Player> filterPlayersWithSortNationalityPlayerPositionOvrGteOvrLte(@Define("sort") String sort, @Bind("nationality")
             String nationality, @Bind("playerPosition") String playerPosition, @Bind("ovrGte") int ovrGte, @Bind("ovrLte") int ovrLte);
@@ -79,7 +80,8 @@ public interface PlayerDao {
             "from player " +
             "where overall >= :ovrGte " +
             "AND overall <= :ovrLte " +
-            "ORDER BY overall <sort>")
+            "ORDER BY overall <sort> " +
+            "LIMIT 30")
     @RegisterBeanMapper(Player.class)
     List<Player> filterPlayersWithSortOverGteOvrLte(@Define("sort") String sort, @Bind("ovrGte") int ovrGte, @Bind("ovrLte") int ovrLte);
 
@@ -88,10 +90,11 @@ public interface PlayerDao {
             "value,wage,preferredfoot,skillmoves,workrate," +
             "position,jerseynumber,height,weight,releaseClause " +
             "from player " +
-            "where nationality = :nationality " +
+            "where unaccent(nationality) = unaccent(:nationality) " +
             "AND overall >= :ovrGte " +
             "AND overall <= :ovrLte " +
-            "ORDER BY overall <sort>")
+            "ORDER BY overall <sort> " +
+            "LIMIT 30")
     @RegisterBeanMapper(Player.class)
     List<Player> filterPlayersWithSortOverGteOvrLtNationality(@Define("sort") String sort, @Bind("ovrGte") int ovrGte, @Bind("ovrLte") int ovrLte, @Bind("nationality") String nationality);
 
@@ -103,7 +106,8 @@ public interface PlayerDao {
             "where position = :playerPosition " +
             "AND overall >= :ovrGte " +
             "AND overall <= :ovrLte " +
-            "ORDER BY overall <sort>")
+            "ORDER BY overall <sort> " +
+            "LIMIT 30")
     @RegisterBeanMapper(Player.class)
     List<Player> filterPlayersWithSortOverGteOvrLtPosition(@Define("sort") String sort, @Bind("ovrGte") int ovrGte, @Bind("ovrLte") int ovrLte, @Bind("playerPosition") String playerPosition);
 }
