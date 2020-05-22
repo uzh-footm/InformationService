@@ -104,16 +104,16 @@ public class PlayerResource {
     @Produces(MediaType.APPLICATION_JSON)
     public List<Player> getListPlayersMatchingTheQuery(@NotNull @QueryParam("sort") String sort,
                                                        @QueryParam("nationality") String nationality,
-                                                       @QueryParam("position") String playerPosition,
+                                                       @QueryParam("position") List<String> playerPositions,
                                                        @NotNull @QueryParam("ovrGte") Integer ovrGte,
                                                        @NotNull @QueryParam("ovrLte") Integer ovrLte) {
 
-        if (nationality != null && playerPosition != null) {
-            return playerDao.filterPlayersWithSortNationalityPlayerPositionOvrGteOvrLte(sort, nationality, playerPosition, ovrGte, ovrLte);
+        if (nationality != null && !playerPositions.isEmpty()) {
+            return playerDao.filterPlayersWithSortNationalityPlayerPositionOvrGteOvrLte(sort, nationality, playerPositions, ovrGte, ovrLte);
         } else if (nationality != null) {
             return playerDao.filterPlayersWithSortOverGteOvrLtNationality(sort, ovrGte, ovrLte, nationality);
-        } else if (playerPosition != null) {
-            return playerDao.filterPlayersWithSortOverGteOvrLtPosition(sort, ovrGte, ovrLte, playerPosition);
+        } else if (!playerPositions.isEmpty()) {
+            return playerDao.filterPlayersWithSortOverGteOvrLtPosition(sort, ovrGte, ovrLte, playerPositions);
         } else {
             return playerDao.filterPlayersWithSortOverGteOvrLte(sort, ovrGte, ovrLte);
         }

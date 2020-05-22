@@ -229,9 +229,13 @@ class PlayerResourceTest {
 
     @Test
     void testFilterPlayersWithSortNationalityPlayerPositionOvrGteOvrLteSuccess() {
-        List<Player> playerList = new ArrayList<Player>();
+        List<Player> playerList = new ArrayList<>();
         playerList.add(new Player());
-        when(dao.filterPlayersWithSortNationalityPlayerPositionOvrGteOvrLte("desc", "nationality", "RW", 40, 80)).thenReturn(playerList);
+
+        List<String> playerPositions = new ArrayList<>();
+        playerPositions.add("RW");
+
+        when(dao.filterPlayersWithSortNationalityPlayerPositionOvrGteOvrLte("desc", "nationality", playerPositions, 40, 80)).thenReturn(playerList);
 
         List<Player> expectedResponse = RULE.target("/players")
                 .queryParam("sort", "desc")
@@ -244,12 +248,12 @@ class PlayerResourceTest {
                 });
 
         assertThat(expectedResponse).isEqualTo(playerList);
-        verify(dao).filterPlayersWithSortNationalityPlayerPositionOvrGteOvrLte("desc", "nationality", "RW", 40, 80);
+        verify(dao).filterPlayersWithSortNationalityPlayerPositionOvrGteOvrLte("desc", "nationality", playerPositions, 40, 80);
     }
 
     @Test
     void filterPlayersWithSortOverGteOvrLteSuccess() {
-        List<Player> playerList = new ArrayList<Player>();
+        List<Player> playerList = new ArrayList<>();
         playerList.add(new Player());
         when(dao.filterPlayersWithSortOverGteOvrLte("desc", 40, 80)).thenReturn(playerList);
 
@@ -267,7 +271,7 @@ class PlayerResourceTest {
 
     @Test
     void filterPlayersWithSortOverGteOvrLtNationalitySuccess() {
-        List<Player> playerList = new ArrayList<Player>();
+        List<Player> playerList = new ArrayList<>();
         playerList.add(new Player());
         when(dao.filterPlayersWithSortOverGteOvrLtNationality("desc", 40, 80, "nationality")).thenReturn(playerList);
 
@@ -286,20 +290,26 @@ class PlayerResourceTest {
 
     @Test
     void filterPlayersWithSortOverGteOvrLtPositionSuccess() {
-        List<Player> playerList = new ArrayList<Player>();
+        List<Player> playerList = new ArrayList<>();
         playerList.add(new Player());
-        when(dao.filterPlayersWithSortOverGteOvrLtPosition("desc", 40, 80, "RW")).thenReturn(playerList);
+
+        List<String> playerPositions = new ArrayList<>();
+        playerPositions.add("RW");
+        playerPositions.add("ST");
+
+        when(dao.filterPlayersWithSortOverGteOvrLtPosition("desc", 40, 80, playerPositions)).thenReturn(playerList);
 
         List<Player> expectedResponse = RULE.target("/players")
                 .queryParam("sort", "desc")
                 .queryParam("ovrGte", 40)
                 .queryParam("ovrLte", 80)
                 .queryParam("position", "RW")
+                .queryParam("position", "ST")
                 .request()
                 .get(new GenericType<List<Player>>() {
                 });
 
         assertThat(expectedResponse).isEqualTo(playerList);
-        verify(dao).filterPlayersWithSortOverGteOvrLtPosition("desc", 40, 80, "RW");
+        verify(dao).filterPlayersWithSortOverGteOvrLtPosition("desc", 40, 80, playerPositions);
     }
 }

@@ -6,6 +6,7 @@ import com.footm.informationservice.api.PlayerPositions;
 import com.footm.informationservice.api.PlayerSkills;
 import org.jdbi.v3.sqlobject.config.RegisterBeanMapper;
 import org.jdbi.v3.sqlobject.customizer.Bind;
+import org.jdbi.v3.sqlobject.customizer.BindList;
 import org.jdbi.v3.sqlobject.customizer.Define;
 import org.jdbi.v3.sqlobject.statement.SqlQuery;
 
@@ -64,7 +65,7 @@ public interface PlayerDao {
             "value,wage,preferredfoot,skillmoves,workrate," +
             "position,jerseynumber,height,weight,releaseClause " +
             "from player " +
-            "where position = :playerPosition " +
+            "where position IN (<playerPositions>) " +
             "AND unaccent(nationality) = unaccent(:nationality) " +
             "AND overall >= :ovrGte " +
             "AND overall <= :ovrLte " +
@@ -72,7 +73,7 @@ public interface PlayerDao {
             "LIMIT 30")
     @RegisterBeanMapper(Player.class)
     List<Player> filterPlayersWithSortNationalityPlayerPositionOvrGteOvrLte(@Define("sort") String sort, @Bind("nationality")
-            String nationality, @Bind("playerPosition") String playerPosition, @Bind("ovrGte") int ovrGte, @Bind("ovrLte") int ovrLte);
+            String nationality, @BindList("playerPositions") List<String> playerPositions, @Bind("ovrGte") int ovrGte, @Bind("ovrLte") int ovrLte);
 
     @SqlQuery("select id,name,age,photo,nationality,overall,club," +
             "value,wage,preferredfoot,skillmoves,workrate," +
@@ -103,11 +104,11 @@ public interface PlayerDao {
             "value,wage,preferredfoot,skillmoves,workrate," +
             "position,jerseynumber,height,weight,releaseClause " +
             "from player " +
-            "where position = :playerPosition " +
+            "where position IN (<playerPositions>) " +
             "AND overall >= :ovrGte " +
             "AND overall <= :ovrLte " +
             "ORDER BY overall <sort> " +
             "LIMIT 30")
     @RegisterBeanMapper(Player.class)
-    List<Player> filterPlayersWithSortOverGteOvrLtPosition(@Define("sort") String sort, @Bind("ovrGte") int ovrGte, @Bind("ovrLte") int ovrLte, @Bind("playerPosition") String playerPosition);
+    List<Player> filterPlayersWithSortOverGteOvrLtPosition(@Define("sort") String sort, @Bind("ovrGte") int ovrGte, @Bind("ovrLte") int ovrLte, @BindList("playerPositions") List<String> playerPositions);
 }
