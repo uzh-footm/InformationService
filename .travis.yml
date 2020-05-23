@@ -26,6 +26,8 @@ after_success:
   - mvn clean test jacoco:report coveralls:report
   - docker login -u $DOCKER_USERNAME -p $DOCKER_PW
   - docker push footm/informationservice:1.0-SNAPSHOT
+  - mvn javadoc:javadoc
+
 
 deploy:
   provider: pages
