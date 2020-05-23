@@ -26,11 +26,15 @@ after_success:
   - mvn clean test jacoco:report coveralls:report
   - docker login -u $DOCKER_USERNAME -p $DOCKER_PW
   - docker push footm/informationservice:1.0-SNAPSHOT
+  - mvn javadoc:javadoc
+
+before_deploy:
+  - sed -i '/target/d' .gitignore
 
 deploy:
-  local_dir: target/site/apidocs
   provider: pages
   skip_cleanup: true
+  local_dir: target/site/apidocs
   keep_history: true
   github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   on:
