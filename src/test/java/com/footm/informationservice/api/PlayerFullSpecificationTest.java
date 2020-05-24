@@ -7,6 +7,12 @@ import org.junit.jupiter.api.Test;
 import static io.dropwizard.testing.FixtureHelpers.fixture;
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * The class PlayerFullSpecificationTest, test the representations class PlayerFullSpecification by serialization and Deserialization JSON files
+ *
+ * @author Rinor Sefa
+ * @author Lundrim Azemi
+ */
 class PlayerFullSpecificationTest {
     private static final ObjectMapper MAPPER = Jackson.newObjectMapper();
 

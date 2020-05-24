@@ -17,6 +17,14 @@ import java.util.List;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.mockito.Mockito.*;
 
+
+/**
+ * The class ClubResourceTest test the resource(API) of URL /clubs. It uses Mockito to mock the db Interaction,
+ * Junit5, AssertJ and small Jersey client to test the API, both the success and not found cases are tested.
+ *
+ * @author Rinor Sefa
+ * @author Lundrim Azemi
+ */
 @ExtendWith(DropwizardExtensionsSupport.class)
 class ClubResourceTest {
 

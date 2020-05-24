@@ -4,6 +4,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
+/**
+ * The class Player is a JavaBean objects used to serialize and deserialize JSON request and response object by Jackson.
+ * This object contains only the main attribute(Basic) of the player
+ *
+ * @author Rinor Sefa
+ * @author Lundrim Azemi
+ */
 public class Player {
     private long id;
     private String name;

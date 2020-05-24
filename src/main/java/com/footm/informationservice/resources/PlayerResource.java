@@ -12,6 +12,13 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
+/**
+ * The class PlayerResource is associated with /players URl. It uses JAX-RS(JERSEY) annotations to define the request and
+ * the response.
+ *
+ * @author Rinor Sefa
+ * @author Lundrim Azemi
+ */
 @Path("players")
 @Produces(MediaType.APPLICATION_JSON)
 public class PlayerResource {

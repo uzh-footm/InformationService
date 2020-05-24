@@ -7,6 +7,12 @@ import org.junit.jupiter.api.Test;
 import static io.dropwizard.testing.FixtureHelpers.fixture;
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * The class NationalityTest, test the representations class Nationality by serialization and Deserialization JSON files
+ *
+ * @author Rinor Sefa
+ * @author Lundrim Azemi
+ */
 class NationalityTest {
 
     private static final ObjectMapper MAPPER = Jackson.newObjectMapper();

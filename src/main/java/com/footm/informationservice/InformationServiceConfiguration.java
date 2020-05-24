@@ -1,13 +1,20 @@
 package com.footm.informationservice;
 
-import io.dropwizard.Configuration;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.dropwizard.Configuration;
 import io.dropwizard.db.DataSourceFactory;
-import org.hibernate.validator.constraints.*;
 
 import javax.validation.Valid;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
 
+
+/**
+ * The class InformationServiceConfiguration gets the environment specific parameters to run the microservice
+ * In this case it gets the database address, username, password etc.
+ *
+ * @author Rinor Sefa
+ * @author Lundrim Azemi
+ */
 public class InformationServiceConfiguration extends Configuration {
     //DATABASE CONFIGURATION
 

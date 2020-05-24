@@ -9,6 +9,13 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
+/**
+ * The class ClubResource is associated with /clubs URl. It uses JAX-RS(JERSEY) annotations to define the request and
+ * the response.
+ *
+ * @author Rinor Sefa
+ * @author Lundrim Azemi
+ */
 @Path("clubs")
 @Produces(MediaType.APPLICATION_JSON)
 public class ClubResource {

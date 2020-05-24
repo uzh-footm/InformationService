@@ -4,6 +4,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
+
+/**
+ * The class PlayerFullSpecification is a JavaBean objects used to serialize and deserialize JSON request and response object by Jackson.
+ * This object contains all the attributes(Basic+Skills+Positions) of a player
+ *
+ * @author Rinor Sefa
+ * @author Lundrim Azemi
+ */
 public class PlayerFullSpecification {
     private long id;
     private String name;
@@ -546,6 +554,7 @@ public class PlayerFullSpecification {
     public void setRb(int rb) {
         this.rb = rb;
     }
+
     @JsonProperty
     public int getCrossing() {
         return crossing;

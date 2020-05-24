@@ -4,6 +4,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
+
+/**
+ * The class Nationality is a JavaBean objects used to serialize and deserialize JSON request and response object by Jackson.
+ *
+ * @author Rinor Sefa
+ * @author Lundrim Azemi
+ */
 public class Nationality {
     private String id;
     private String logo;

@@ -7,6 +7,12 @@ import org.junit.jupiter.api.Test;
 import static io.dropwizard.testing.FixtureHelpers.fixture;
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * The class LeagueTest, test the representations class League by serialization and Deserialization JSON files
+ *
+ * @author Rinor Sefa
+ * @author Lundrim Azemi
+ */
 class LeagueTest {
 
     private static final ObjectMapper MAPPER = Jackson.newObjectMapper();

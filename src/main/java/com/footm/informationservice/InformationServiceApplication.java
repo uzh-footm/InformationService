@@ -14,6 +14,13 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import org.jdbi.v3.core.Jdbi;
 
+/**
+ * The class InformationServiceApplication pulls together everything and runs the microservice.
+ *
+ * @author Rinor Sefa
+ * @author Lundrim Azemi
+ */
+
 public class InformationServiceApplication extends Application<InformationServiceConfiguration> {
 
     public static void main(final String[] args) throws Exception {
@@ -33,9 +40,7 @@ public class InformationServiceApplication extends Application<InformationServic
     @Override
     public void run(final InformationServiceConfiguration configuration,
                     final Environment environment) {
-
-
-        //database
+        //configuring database
         final JdbiFactory factory = new JdbiFactory();
         final Jdbi jdbi = factory.build(environment, configuration.getDataSourceFactory(), "postgresql");
 
@@ -44,13 +49,10 @@ public class InformationServiceApplication extends Application<InformationServic
         NationalityDao nationalityDao = jdbi.onDemand(NationalityDao.class);
         LeagueDao leagueDao = jdbi.onDemand(LeagueDao.class);
 
-
+        //registering resources (API Endpoints)
         environment.jersey().register(new PlayerResource(playerDao));
         environment.jersey().register(new ClubResource(clubDao));
         environment.jersey().register(new NationalityResource(nationalityDao));
         environment.jersey().register(new LeagueResource(leagueDao));
-
-
     }
-
 }

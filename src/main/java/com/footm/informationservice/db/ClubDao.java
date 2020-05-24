@@ -7,6 +7,13 @@ import org.jdbi.v3.sqlobject.statement.SqlQuery;
 
 import java.util.List;
 
+/**
+ * The interface ClubDao uses the JDBI SQL Object API to communicate with DB, it takes advantage of mapping between
+ * relations and object.
+ *
+ * @author Rinor Sefa
+ * @author Lundrim Azemi
+ */
 public interface ClubDao {
 
     @SqlQuery("Select club AS id, Logo from clubs")

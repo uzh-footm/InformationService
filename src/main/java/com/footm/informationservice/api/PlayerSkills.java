@@ -4,6 +4,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
+/**
+ * The class PlayerSkills is a JavaBean objects used to serialize and deserialize JSON request and response object by Jackson.
+ * This object contains all skills(Skills) of a player
+ *
+ * @author Rinor Sefa
+ * @author Lundrim Azemi
+ */
 public class PlayerSkills {
     private long id;
     private String name;

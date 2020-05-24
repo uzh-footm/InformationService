@@ -12,6 +12,13 @@ import org.jdbi.v3.sqlobject.statement.SqlQuery;
 
 import java.util.List;
 
+/**
+ * The interface PlayerDao uses the JDBI SQL Object API to communicate with DB, it takes advantage of mapping between
+ * relations and object.
+ *
+ * @author Rinor Sefa
+ * @author Lundrim Azemi
+ */
 public interface PlayerDao {
 
     @SqlQuery("select id,name,age,photo,nationality,overall,club," +

@@ -10,6 +10,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
+/**
+ * The class LeagueResource is associated with /leagues URl. It uses JAX-RS(JERSEY) annotations to define the request and
+ * the response.
+ *
+ * @author Rinor Sefa
+ * @author Lundrim Azemi
+ */
 @Path("leagues")
 @Produces(MediaType.APPLICATION_JSON)
 public class LeagueResource {
