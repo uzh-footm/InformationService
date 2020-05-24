@@ -1,13 +1,11 @@
 # InformationService
 
-How to start the InformationService application
----
+[![Build Status](https://travis-ci.com/uzh-footm/informationService.svg?branch=development)](https://travis-ci.com/uzh-footm/preferenceService)
+[![Coverage Status](https://coveralls.io/repos/github/uzh-footm/InformationService/badge.svg?branch=development)](https://coveralls.io/github/uzh-footm/preferenceService?branch=development)
+https://sonarcloud.io/dashboard?branch=development&id=uzh-footm_InformationService
 
-1. Run `mvn clean install` to build your application
-1. Start application with `java -jar target/informationservice-1.0-SNAPSHOT.jar server config.yml`
-1. To check that your application is running enter url `http://localhost:8080`
+The information service is part of the footm system architecture. Its main feature is to expose the two datasets Fifa 2019 player and fifa 2019 leagues. 
 
-Health Check
----
+Because the service is part of a whole architecture, please go to uzh-footm/docker-compose repository; there you will find the instructions on how to run the system.
 
-To see your applications health enter url `http://localhost:8081/healthcheck`
+More documentation about the service could e found on wiki.
